@@ -1,3 +1,3 @@
-Cài đặt Docker Desktop. /n
-Mở Terminal tại thư mục chứa file đó./n
-Gõ lệnh: docker-compose up -d /n
+Cài đặt Docker Desktop. <br>
+Mở Terminal tại thư mục chứa file đó.<br>
+Gõ lệnh: docker-compose up -d<br>
