@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  # Database PostGIS
+  postgis_db:
+    image: postgis/postgis:15-3.3
+    container_name: postgis_db
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=your_user
+      - POSTGRES_PASSWORD=your_password
+      - POSTGRES_DB=your_db_name
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  # Backend .NET
+  api:
+    image: truongduoc21/gis_api:v1  # Hoặc dùng 'build: ./backend' nếu bạn gửi kèm code
+    container_name: api
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgis_db
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=postgis_db;Database=your_db_name;Username=your_user;Password=your_password
+
+  # Frontend React
+  react_fe:
+    image: truongduoc21/gis_frontend:v1 # Hoặc dùng 'build: ./frontend'
+    container_name: react_fe
+    ports:
+      - "3000:80"
+    depends_on:
+      - api
+
+volumes:
+  postgres_data:
