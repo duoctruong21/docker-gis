@@ -5,3 +5,5 @@ winget install -e --id Docker .DockerDesktop <br>
 Mở Terminal tại thư mục chứa file đó.<br>
 Gõ lệnh: docker-compose up -d<br>
 docker exec -i postgis_db psql -U your_user -d your_db_name < data_backup.sql
+database
+https://drive.google.com/file/d/1u6TmS3YQkX7X1_2xik2DvouFQwJSAzIa/view?usp=drivesdk
